@@ -14,7 +14,7 @@ const Container = styled.SafeAreaView`
   flex: 1;
 `;
 
-const Scroll = styled.FlatList`
+const Listagem = styled.FlatList`
   flex: 1;
 `;
 
@@ -38,21 +38,19 @@ export default function App() {
   }
 
   function toggleDone(index) {
-    alert("Index: " + index);
-
-    // let newItems = [...items];
-    // newItems[index].done = !newItems[index].done;
-    // setItems(newItems);
+    let newItems = [...items];
+    newItems[index].done = !newItems[index].done;
+    setItems(newItems);
   }
 
   return (
     <Container>
       <StatusBar style="light" backgroundColor="#000" translucent={false} />
       <AddItemArea onAdd={addNewItem} />
-      <Scroll
+      <Listagem
         data={items}
         renderItem={({ item, index }) => (
-          <ListaItem OnPress={() => toggleDone(index)} data={item} />
+          <ListaItem onPress={() => toggleDone(index)} data={item} />
         )}
         keyExtractor={(item) => item.id}
       />

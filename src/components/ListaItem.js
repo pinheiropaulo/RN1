@@ -18,17 +18,16 @@ const ItemCheck = styled.View`
   height: 15px;
   width: 15px;
   border-radius: 10px;
-  border: 3px solid #000;
+  border: 2px solid #000;
+  background-color: ${(props) => (props.done ? "#000" : "transparent")};
 `;
 
 export default function (props) {
   return (
     <Item onPress={props.onPress} activeOpacity={0.7}>
       <>
-        <Text>
-          {props.data.nome} - {props.data.done.toString()}
-        </Text>
-        <ItemCheck></ItemCheck>
+        <Text>{props.data.nome}</Text>
+        <ItemCheck done={props.data.done}></ItemCheck>
       </>
     </Item>
   );
