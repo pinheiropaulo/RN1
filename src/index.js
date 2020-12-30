@@ -1,5 +1,3 @@
-import "react-native-get-random-values";
-
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 
@@ -30,7 +28,7 @@ export default function App() {
   const [items, setItems] = useState(lista);
 
   function addNewItem(text) {
-    const newItems = [...items];
+    let newItems = [...items];
     newItems.push({
       id: uuidv4(),
       nome: text,
@@ -42,9 +40,9 @@ export default function App() {
   function toggleDone(index) {
     alert(index);
 
-    const newItems = [...items];
-    newItems[index].done = !newItems[index].done;
-    setItems(newItems);
+    // let newItems = [...items];
+    // newItems[index].done = !newItems[index].done;
+    // setItems(newItems);
   }
 
   return (
