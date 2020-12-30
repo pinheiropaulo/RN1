@@ -23,7 +23,7 @@ const ItemCheck = styled.View`
 
 export default function (props) {
   return (
-    <Item onPress={props.toggleDone} activeOpacity={0.7}>
+    <Item onPress={props.onPress} activeOpacity={0.7}>
       <>
         <Text>
           {props.data.nome} - {props.data.done.toString()}

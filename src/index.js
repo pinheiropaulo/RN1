@@ -38,7 +38,7 @@ export default function App() {
   }
 
   function toggleDone(index) {
-    alert(index);
+    alert("Index: " + index);
 
     // let newItems = [...items];
     // newItems[index].done = !newItems[index].done;
