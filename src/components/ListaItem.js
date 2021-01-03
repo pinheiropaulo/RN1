@@ -1,5 +1,9 @@
 import React from "react";
 
+import Swipeable from "react-native-gesture-handler/Swipeable";
+
+import ListaItemSwipe from "./ListaItemSwipe";
+
 import styled from "styled-components/native";
 
 const Text = styled.Text`
@@ -8,10 +12,13 @@ const Text = styled.Text`
   flex: 1;
 `;
 
-const Item = styled.TouchableOpacity`
-  padding: 10px;
+const Item = styled.TouchableHighlight`
   background-color: #eee;
   flex-direction: row;
+  height: 50px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 const ItemCheck = styled.View`
@@ -24,11 +31,17 @@ const ItemCheck = styled.View`
 
 export default function (props) {
   return (
-    <Item onPress={props.onPress} activeOpacity={0.7}>
-      <>
-        <Text>{props.data.nome}</Text>
-        <ItemCheck done={props.data.done}></ItemCheck>
-      </>
-    </Item>
+    <Swipeable
+      renderLeftActions={ListaItemSwipe}
+      onSwipeableOpen={() => console.log(props.onPres)}
+      overshootLeft="false"
+    >
+      <Item onPress={props.onPress} activeOpacity={1} underlayColor="#DDD">
+        <>
+          <Text>{props.data.nome}</Text>
+          <ItemCheck done={props.data.done}></ItemCheck>
+        </>
+      </Item>
+    </Swipeable>
   );
 }

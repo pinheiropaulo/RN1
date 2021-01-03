@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-
 import { v4 as uuidv4 } from "uuid";
-
 import styled from "styled-components/native";
 
 import ListaItem from "./components/ListaItem";
